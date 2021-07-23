@@ -210,6 +210,7 @@ class Trainer(object):
                     # update unlabeled data
                     if global_step != 0:
                         # 找出所有unlabeled data(indices 指的是原数据的index，batch_indices指的是batch中的index)
+                        # only for agnews
                         unlabeled_batch_indices = torch.reshape((batch_label == -1).nonzero(), (1, -1))
                         unlabeled_batch_output = batch_output[unlabeled_batch_indices]
                         unlabeled_indices = indices[unlabeled_batch_indices]
